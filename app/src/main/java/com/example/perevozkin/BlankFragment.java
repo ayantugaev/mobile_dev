@@ -17,17 +17,10 @@ import android.widget.Button;
  */
 public class BlankFragment extends Fragment {
     private Button button;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private int count = 0;
 
     public BlankFragment() {
-        // Required empty public constructor
     }
 
     /**
@@ -38,13 +31,10 @@ public class BlankFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment BlankFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static BlankFragment newInstance(String param1, String param2) {
         int counter = 0;
         BlankFragment fragment = new BlankFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,8 +55,9 @@ public class BlankFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code to execute when the button is clicked
-                Log.d("MY_TAG", "Кнопка была нажата!");
+                count += 1;
+                String msg = "count: " + count;
+                Log.d("MY_TAG", msg);
             }
         });
 
