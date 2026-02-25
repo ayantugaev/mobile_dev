@@ -4,24 +4,21 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BlankFragment#newInstance} factory method to
+ * Use the {@link BlankFragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragment extends Fragment {
-    private Button button;
+public class BlankFragment2 extends Fragment {
+    private TextView counter_text;
 
-    private int count = 0;
-
-    public BlankFragment() {
+    public BlankFragment2() {
+        // Required empty public constructor
     }
 
     /**
@@ -30,11 +27,10 @@ public class BlankFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
+     * @return A new instance of fragment BlankFragment2.
      */
-    public static BlankFragment newInstance(String param1, String param2) {
-        int counter = 0;
-        BlankFragment fragment = new BlankFragment();
+    public static BlankFragment2 newInstance(String param1, String param2) {
+        BlankFragment2 fragment = new BlankFragment2();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -48,18 +44,9 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blank, container, false);
+        View view = inflater.inflate(R.layout.fragment_blank2, container, false);
 
-        button = view.findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count += 1;
-                String msg = "Баланс: " + count;
-                counter_text.setText(msg);
-            }
-        });
+        counter_text = view.findViewById(R.id.textView3);
 
         return view;
     }
