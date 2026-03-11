@@ -3,14 +3,16 @@ package com.example.perevozkin;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements onUpdateTextListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +35,13 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
+    }
+
+    @Override
+    public void onUpdateText(String newText) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        BlankFragment2 fragment2 = (BlankFragment2) fragmentManager.findFragmentById(R.id.main2);
+        fragment2.counter_text.setText(newText);
     }
 }

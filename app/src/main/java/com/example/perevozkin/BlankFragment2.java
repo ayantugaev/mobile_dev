@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class BlankFragment2 extends Fragment {
-    private TextView counter_text;
+    public TextView counter_text;
 
     public BlankFragment2() {
         // Required empty public constructor
@@ -37,16 +38,17 @@ public class BlankFragment2 extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank2, container, false);
 
         counter_text = view.findViewById(R.id.textView3);
+        counter_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MainActivity", "hi");
+            }
+        });
 
         return view;
     }

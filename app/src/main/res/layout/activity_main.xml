@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main"
+        android:name="com.example.perevozkin.BlankFragment"
         android:layout_width="match_parent"
-        android:layout_height="368dp"
-        tools:context=".MainActivity">
+        android:layout_height="442dp"
+        tools:layout="@layout/fragment_blank">
 
     </androidx.fragment.app.FragmentContainerView>
 
@@ -18,7 +21,9 @@
         android:id="@+id/main2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:name="com.example.perevozkin.BlankFragment2"
+        tools:layout="@layout/fragment_blank2"
+>
 
     </androidx.fragment.app.FragmentContainerView>
 

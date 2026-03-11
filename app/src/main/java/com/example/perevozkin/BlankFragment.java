@@ -1,5 +1,6 @@
 package com.example.perevozkin;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,8 @@ import android.widget.TextView;
  */
 public class BlankFragment extends Fragment {
     private Button button;
+
+    private onUpdateTextListener textListener;
 
     private int count = 0;
 
@@ -41,8 +44,9 @@ public class BlankFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context ctx) {
+        super.onAttach(ctx);
+        textListener = (onUpdateTextListener) ctx;
     }
 
     @Override
@@ -57,7 +61,7 @@ public class BlankFragment extends Fragment {
             public void onClick(View v) {
                 count += 1;
                 String msg = "Баланс: " + count;
-                counter_text.setText(msg);
+                textListener.onUpdateText(msg);
             }
         });
 
