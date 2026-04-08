@@ -4,26 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main"
         android:name="com.example.perevozkin.BlankFragment"
         android:layout_width="match_parent"
-        android:layout_height="442dp"
-        tools:layout="@layout/fragment_blank">
-
-    </androidx.fragment.app.FragmentContainerView>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/balance"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.perevozkin.BlankFragment2"
-        tools:layout="@layout/fragment_blank2"
->
+        tools:layout="@layout/fragment_blank">
 
     </androidx.fragment.app.FragmentContainerView>
 

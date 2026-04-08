@@ -5,10 +5,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +18,8 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class BlankFragment extends Fragment {
+    public TextView balance_text;
+
     private Button button;
 
     private UpdateListener updateListener;
@@ -54,12 +58,23 @@ public class BlankFragment extends Fragment {
 
         button = view.findViewById(R.id.button);
 
+        balance_text = view.findViewById(R.id.balanceText);
+        balance_text.setText("Баланс: " + String.valueOf(count));
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count += 1;
-                String msg = "Баланс: " + count;
-                updateListener.onUpdateText(msg);
+                balance_text.setText("Баланс: " + String.valueOf(count));
+            }
+        });
+
+        balance_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("", "hi");
+                BlankFragment2 fragment2 = new BlankFragment2();
+                updateListener.onFragmentSwitch(R.id.main, fragment2);
             }
         });
 

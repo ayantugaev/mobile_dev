@@ -18,8 +18,6 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class BlankFragment2 extends Fragment {
-    public TextView counter_text;
-
     private UpdateListener updateListener;
     private FragmentManager fragmentManager;
 
@@ -52,15 +50,6 @@ public class BlankFragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank2, container, false);
-
-        counter_text = view.findViewById(R.id.textView3);
-        counter_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BlankFragment3 fragment3 = new BlankFragment3();
-                updateListener.onFragmentSwitch(R.id., fragment3);
-            }
-        });
 
         return view;
     }

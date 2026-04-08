@@ -40,15 +40,8 @@ public class MainActivity extends AppCompatActivity implements UpdateListener {
     }
 
     @Override
-    public void onUpdateText(String newText) {
-        BlankFragment fragment = (BlankFragment) fragmentManager.findFragmentById(R.id.main);
-        fragment
-        fragment2.counter_text.setText(newText);
-    }
-
-    @Override
     public void onFragmentSwitch(int container_id, Fragment newFragment) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(container_id, newFragment).addToBackStack(null).commit();
+        transaction.replace(container_id, newFragment).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 }
