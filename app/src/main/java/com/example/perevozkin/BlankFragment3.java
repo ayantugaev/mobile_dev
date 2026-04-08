@@ -1,5 +1,6 @@
 package com.example.perevozkin;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -30,6 +31,11 @@ public class BlankFragment3 extends Fragment {
         BlankFragment3 fragment = new BlankFragment3();
         Bundle args = new Bundle();
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context ctx) {
+        super.onAttach(ctx);
     }
 
     @Override

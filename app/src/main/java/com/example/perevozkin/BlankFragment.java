@@ -5,12 +5,10 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +18,7 @@ import android.widget.TextView;
 public class BlankFragment extends Fragment {
     private Button button;
 
-    private onUpdateTextListener textListener;
+    private UpdateListener updateListener;
 
     private int count = 0;
 
@@ -46,7 +44,7 @@ public class BlankFragment extends Fragment {
     @Override
     public void onAttach(Context ctx) {
         super.onAttach(ctx);
-        textListener = (onUpdateTextListener) ctx;
+        updateListener = (UpdateListener) ctx;
     }
 
     @Override
@@ -61,7 +59,7 @@ public class BlankFragment extends Fragment {
             public void onClick(View v) {
                 count += 1;
                 String msg = "Баланс: " + count;
-                textListener.onUpdateText(msg);
+                updateListener.onUpdateText(msg);
             }
         });
 

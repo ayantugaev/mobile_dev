@@ -1,8 +1,10 @@
 package com.example.perevozkin;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +19,9 @@ import android.widget.TextView;
  */
 public class BlankFragment2 extends Fragment {
     public TextView counter_text;
+
+    private UpdateListener updateListener;
+    private FragmentManager fragmentManager;
 
     public BlankFragment2() {
         // Required empty public constructor
@@ -38,6 +43,12 @@ public class BlankFragment2 extends Fragment {
     }
 
     @Override
+    public void onAttach(Context ctx) {
+        super.onAttach(ctx);
+        updateListener = (UpdateListener) ctx;
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank2, container, false);
@@ -46,7 +57,8 @@ public class BlankFragment2 extends Fragment {
         counter_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MainActivity", "hi");
+                BlankFragment3 fragment3 = new BlankFragment3();
+                updateListener.onFragmentSwitch(R.id., fragment3);
             }
         });
 
